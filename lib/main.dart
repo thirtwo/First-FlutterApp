@@ -3,10 +3,12 @@ import 'package:english_words/english_words.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget 
+{ 
   @override
-  Widget build(BuildContext context) {
-    final centerText = WordPair.random();
+  Widget build(BuildContext context) 
+  {
+    
     var appName = WordPair.random();
     return MaterialApp(
       title: appName.asSnakeCase,
@@ -15,9 +17,22 @@ class MyApp extends StatelessWidget {
           title: Text(appName.toString()),
         ),
         body: Center(
-          child: Text(centerText.asPascalCase),
+          child: RandomWords(),
         ),
       ),
     );
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  _RandomWordsState createState() => _RandomWordsState();
+}
+
+class _RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final randomText = WordPair.random();
+      return Text(randomText.asPascalCase);  
   }
 }
